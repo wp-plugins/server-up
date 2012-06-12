@@ -1,0 +1,179 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Server-Up v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-11 14:04+0100\n"
+"PO-Revision-Date: 2012-06-11 14:06+0100\n"
+"Last-Translator: Arnaud Grousset <grousset.a@gmail.com>\n"
+"Language-Team: Arnaud Grousset <grousset.a@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../lib/ServerUp/Widget.php:37
+#: ../lib/ServerUp/Widget.php:38
+#: ../lib/ServerUp/Admin.php:47
+msgid "Server-Up"
+msgstr "Server-Up"
+
+#: ../lib/ServerUp/Admin.php:48
+msgid "Add server"
+msgstr "Ajouter un serveur"
+
+#: ../tpl/shortcode/render.php:47
+#: ../tpl/widget/render.php:62
+msgid "Server online."
+msgstr "Serveur en ligne."
+
+#: ../tpl/shortcode/render.php:50
+#: ../tpl/widget/render.php:65
+msgid "Server down."
+msgstr "Server hors ligne."
+
+#: ../tpl/shortcode/render.php:59
+#: ../tpl/widget/render.php:74
+msgid "No server to display."
+msgstr "Aucun serveur à afficher."
+
+#: ../tpl/admin/listing.php:27
+msgid "Server-Up - List server"
+msgstr "Server-Up - Liste des serveurs"
+
+#: ../tpl/admin/listing.php:31
+msgid "You didn't add any servers yet. Please create ones"
+msgstr "Vous n'avez pas encore ajouter de serveur. Veuillez en ajouter un"
+
+#: ../tpl/admin/listing.php:37
+msgid "Server(s) successfully deleted."
+msgstr "Suppression du/des serveur(s) réussie"
+
+#: ../tpl/admin/listing.php:41
+msgid "Servers"
+msgstr "Serveurs"
+
+#: ../tpl/admin/listing.php:45
+msgid "Delete"
+msgstr "Supprimer"
+
+#: ../tpl/admin/listing.php:51
+msgid "ID"
+msgstr "Id"
+
+#: ../tpl/admin/listing.php:52
+#: ../tpl/admin/config.php:55
+msgid "Name"
+msgstr "Nom"
+
+#: ../tpl/admin/listing.php:53
+#: ../tpl/admin/config.php:64
+msgid "Host"
+msgstr "Host"
+
+#: ../tpl/admin/listing.php:54
+#: ../tpl/admin/config.php:73
+msgid "Port"
+msgstr "Port"
+
+#: ../tpl/admin/listing.php:55
+#: ../tpl/admin/config.php:83
+msgid "Icon"
+msgstr "Icon"
+
+#: ../tpl/admin/listing.php:66
+msgid "Edit"
+msgstr "Modifier"
+
+#: ../tpl/admin/listing.php:72
+msgid "Yes"
+msgstr "Oui"
+
+#: ../tpl/admin/listing.php:72
+msgid "No"
+msgstr "Non"
+
+#: ../tpl/admin/config.php:27
+msgid "Server-Up - Edit or add server"
+msgstr "Server-Up - Création ou modification d'un serveur"
+
+#: ../tpl/admin/config.php:31
+msgid "Server successfully added."
+msgstr "Création du serveur réussi"
+
+#: ../tpl/admin/config.php:37
+msgid "Server successfully updated."
+msgstr "Mise à jour du serveur réussie."
+
+#: ../tpl/admin/config.php:43
+msgid "Server'icon successfully updated."
+msgstr "Icon du serveur mis à jour avec succès."
+
+#: ../tpl/admin/config.php:48
+msgid "Settings"
+msgstr "Préférences"
+
+#: ../tpl/admin/config.php:59
+msgid "Name of the server."
+msgstr "Nom du serveur."
+
+#: ../tpl/admin/config.php:68
+msgid "Adress to the server. Can be an url or an ip adress."
+msgstr "Adresse du serveur. Peut être une URL ou un adresse IP."
+
+#: ../tpl/admin/config.php:77
+msgid "Port of the server"
+msgstr "Port du serveur"
+
+#: ../tpl/admin/config.php:87
+msgid "Icon of the server."
+msgstr "Icon du serveur."
+
+#: ../tpl/admin/config.php:100
+msgid "Save"
+msgstr "Enregistrer"
+
+#: ../tpl/widget/render.php:35
+#, php-format
+msgid "(refresh every %d s)"
+msgstr "(Actualisé toute les %d s)"
+
+#: ../tpl/widget/config.php:26
+msgid "Title :"
+msgstr "Titre :"
+
+#: ../tpl/widget/config.php:31
+msgid "Time between 2 automatic refresh (in second) :"
+msgstr "Temps entre 2 rafraîchissement automatique (en second) :"
+
+#: ../tpl/widget/config.php:35
+msgid "If you left it blank, automatic refresh will be deactivated"
+msgstr "Si vous laissez vide, le rafraîchissement automatique de la liste sera désactivé."
+
+#: ../tpl/errors/phpVersion.php:26
+msgid "The PHP-Version of your webspace is too low. You need at least version 5.3.2"
+msgstr "La version de PHP de votre environnement web est obsolète. Vous devez avoir au moins la version 5.3.2"
+
+#: ../tpl/errors/phpVersion.php:27
+msgid "Your version:"
+msgstr "Votre version :"
+
+#: ../tpl/errors/phpVersion.php:28
+msgid "Please upgrade to a newer version and install the plugin again"
+msgstr "Veuillez mettre à jour votre version, et installer le plugin à nouveau"
+
+#~ msgid "Servername"
+#~ msgstr "Nom"
+
+#~ msgid "Serveradress"
+#~ msgstr "Host"
+
+#~ msgid "Serverport"
+#~ msgstr "Port"
+
+#~ msgid "Servericon"
+#~ msgstr "Icon"
