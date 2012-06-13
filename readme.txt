@@ -35,11 +35,12 @@ Base on the work of jonesy44, aviable here : http://www.hawkee.com/snippet/5404/
 1. Enter `<?php echo do_shortcode('[serverup]'); ?>` into a suitable template file.
 
 == Frequently Asked Questions ==
-
+Fail to install : I have notice a problem with the downloaded Zip-file in wordpress.org official site. I'm working on it. So, you can download the plugin at this location : http://www.eleyone.fr/wp-content/uploads/2012/06/server-up.zip
 
 == Developer Notes ==
+This is just an Beta, so dont cry if there are Problems! If you need help just write a mail to grousset.a@gmail.com, at least in english, in french, if possible.
 
-This is just an Beta, so dont cry if there are Problems! If you need help just write a mail to grousset.a@gmail.com, at least in english, in french, if possible. 
+In the future, i plan to add a automatic refresh on widget, with ajax.
 
 == Changelog == 
 = 1.0 =
