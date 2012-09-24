@@ -21,65 +21,74 @@
  *
  */
 
-class ServerUp_Widget {
+class ServerUp_Widget extends WP_Widget {
 	
 	const SERVERUP_WIDGET_ID = "widget_serverup" ;
 	
 	protected $serverup ;
 	
-	public function __construct($serverup) {
+	/* Widget control settings. */
+	protected $_control_ops = array('id_base' => self::SERVERUP_WIDGET_ID) ;
+	
+	public function __construct() {
 		
-		$this->serverup = $serverup ;
+		$this->serverup = ServerUp::getInstance() ;
+		
+		$widget_ops = array(
+			'classname' => self::SERVERUP_WIDGET_ID,
+			'description' => __('Display a list of configured servers with name, icon and state (online or not)', ServerUp::TEXT_DOMAIN),
+		) ;
+		
+		/* Create the widget. */
+		$this->WP_Widget(self::SERVERUP_WIDGET_ID, __('Server-Up'), $widget_ops, $this->_control_ops ) ;
+		
+		$this->init() ;
 	}
 	
 	public function init() {
-		
-		wp_register_sidebar_widget(self::SERVERUP_WIDGET_ID, __('Server-Up'), array($this, 'execute')) ;
-		wp_register_widget_control(self::SERVERUP_WIDGET_ID, __('Server-Up'), array($this, 'control')) ;
 		
 		add_action('wp_print_styles', array($this, 'load_css')) ;
 		//add_action('wp_print_scripts', 'load_js' ) ;
 	}
 	
-	public function control() {
+	function update($new_instance, $old_instance) {
 		
-		$options = get_option(self::SERVERUP_WIDGET_ID) ;
+		$instance = $old_instance ;
 		
-		if (!is_array($options)) {
-			
-			$options = array() ;
-		}
+		/* Strip tags (if needed) and update the widget settings. */
+		$instance['title'] = strip_tags($new_instance['title']) ;
+		$instance['uptime'] = strip_tags($new_instance['uptime']) ;
 		
-		$widget_data = $_POST[self::SERVERUP_WIDGET_ID] ;
+		return $instance ;
+	}
+	
+	public function form($instance) {
 		
-		if ($widget_data['submit']) {
-			
-			$options['title'] = $widget_data['title'] ;
-			$options['uptime'] = $widget_data['uptime'] ;
-			update_option(self::SERVERUP_WIDGET_ID, $options) ;
-		}
+		/* Set up some default widget settings. */
+		$defaults = array('title' => __('Server-Up'), 'uptime' => '60') ;
+		$instance = wp_parse_args((array)$instance, $defaults) ;
 		
 		// Render form
-		$title = $options['title'] ;
-		$uptime = $options['uptime'] ;
+		$title = strip_tags($instance['title']) ;
+		$uptime = strip_tags($instance['uptime']) ;
 		
 		// The HTML form will go here
 		require_once $this->serverup->pluginPath . 'tpl/widget/config.php' ;
 	}
 	
-	public function execute($args) {
+	public function widget($args, $instance) {
 		
 		extract($args, EXTR_SKIP) ;
+		
 		echo $before_widget ;
 		
-		$options = get_option(self::SERVERUP_WIDGET_ID) ;
-		
-		$title = $options["title"] ;
-		$uptime = $options["uptime"] ;
+		$title = $instance["title"] ;
+		$uptime = $instance["uptime"] ;
 		
 		$this->display($title, $uptime) ;
 		
 		echo $after_widget ;
+		
 	}
 	
 	private function display($title, $uptime) {

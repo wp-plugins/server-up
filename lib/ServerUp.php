@@ -43,6 +43,8 @@ class ServerUp {
 	public $wpdb ;
 	public $tableName ;
 	
+	private static $_instance ;
+	
 	/**
 	 * Inserts the database for the TeamSpeak3 Webviewer Data
 	 * @since 1.0
@@ -57,6 +59,13 @@ class ServerUp {
 		$this->adminUrl = admin_url() ;
 		
 		$this->registerHooks() ;
+		
+		self::$_instance = $this ;
+	}
+	
+	public static function getInstance() {
+		
+		return self::$_instance ;
 	}
 	
 	/**
@@ -152,12 +161,10 @@ class ServerUp {
 		/**
 		 * Loading widget
 		 */
-		$widget = new ServerUp_Widget($this) ;
-		
-		if (isset($widget)) {
-				
-			add_action("plugins_loaded", array($widget, 'init')) ;
-		}
+		add_action('widgets_init', function() {
+			
+			register_widget('ServerUp_Widget') ;
+		}) ;
 		
 		/**
 		 * Loading shortcode

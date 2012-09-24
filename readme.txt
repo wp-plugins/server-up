@@ -3,7 +3,7 @@ Contributors: Arnaud Grousset
 Tags: badge, widget, widgets, plugin, plugins, sidebar, port checking, server cheking, server status, port status
 Requires at least: 2.8
 Tested up to: 3.3.2
-Stable tag: 1.0
+Stable tag: 1.1
 
 Allows to show the status of a list of server as a Widget and a Shortcode
 
@@ -43,5 +43,9 @@ This is just an Beta, so dont cry if there are Problems! If you need help just w
 In the future, i plan to add a automatic refresh on widget, with ajax.
 
 == Changelog == 
+= 1.1 =
+* Changing HTML code for widget render and shortcode render.
+* Changing widget registering implementation to the WordPress v2.8 implementation.
+
 = 1.0 =
 * First inoffcial Release

@@ -22,19 +22,17 @@
  */
 ?>
 
-<label for="<?php echo self::SERVERUP_WIDGET_ID ; ?>-title">
+<label for="<?php echo $this->get_field_id('title') ; ?>-title">
 	<?php _e('Title :', ServerUp::TEXT_DOMAIN) ; ?>
 </label>
-<input class="widefat" type="text" name="<?php echo self::SERVERUP_WIDGET_ID ; ?>[title]" id="<?php echo self::SERVERUP_WIDGET_ID ; ?>-title" value="<?php echo $title ; ?>" />
+<input class="widefat" type="text" name="<?php echo $this->get_field_name('title') ; ?>" id="<?php echo $this->get_field_id('title') ; ?>" value="<?php echo $title ; ?>" />
 
 <!-- 
-<label for="<?php echo self::SERVERUP_WIDGET_ID ; ?>-uptime">
+<label for="<?php echo $this->get_field_id('uptime') ; ?>-uptime">
 	<?php _e('Time between 2 automatic refresh (in second) :', ServerUp::TEXT_DOMAIN) ; ?>
 </label>
-<input class="widefat" type="text" name="<?php echo self::SERVERUP_WIDGET_ID ; ?>[uptime]" id="<?php echo self::SERVERUP_WIDGET_ID ; ?>-uptime" value="<?php echo $uptime ; ?>" />
+<input class="widefat" type="text" name="<?php echo $this->get_field_name('uptime') ; ?>" id="<?php echo $this->get_field_id('uptime') ; ?>" value="<?php echo $uptime ; ?>" />
 <p>
 	<?php _e("If you left it blank, automatic refresh will be deactivated", ServerUp::TEXT_DOMAIN) ; ?>
 </p>
  -->
-
-<input type="hidden" name="<?php echo self::SERVERUP_WIDGET_ID; ?>[submit]" value="1" />

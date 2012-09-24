@@ -23,7 +23,7 @@
 ?>
 
 <div class="error settings-error">
-	<p><?php _e('The PHP-Version of your webspace is too low. You need at least version 5.3.2', ServerUp::TEXT_DOMAIN) ?></p>
+	<p><?php _e('The PHP version of your webspace is too low. You need at least version 5.3.2', ServerUp::TEXT_DOMAIN) ?></p>
 	<p><strong><?php _e('Your version:', ServerUp::TEXT_DOMAIN)?></strong> <?php echo (phpversion()) ?></p>
 	<p><?php _e('Please upgrade to a newer version and install the plugin again', ServerUp::TEXT_DOMAIN)?></p>
 </div>

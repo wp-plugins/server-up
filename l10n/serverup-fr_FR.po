@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Server-Up v1.0\n"
+"Project-Id-Version: Server-Up v1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 14:04+0100\n"
-"PO-Revision-Date: 2012-06-11 14:06+0100\n"
+"POT-Creation-Date: 2012-09-24 23:47+0100\n"
+"PO-Revision-Date: 2012-09-24 23:49+0100\n"
 "Last-Translator: Arnaud Grousset <grousset.a@gmail.com>\n"
 "Language-Team: Arnaud Grousset <grousset.a@gmail.com>\n"
 "Language: \n"
@@ -16,30 +16,115 @@ msgstr ""
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../lib/ServerUp/Widget.php:37
-#: ../lib/ServerUp/Widget.php:38
-#: ../lib/ServerUp/Admin.php:47
-msgid "Server-Up"
-msgstr "Server-Up"
-
-#: ../lib/ServerUp/Admin.php:48
-msgid "Add server"
-msgstr "Ajouter un serveur"
-
-#: ../tpl/shortcode/render.php:47
-#: ../tpl/widget/render.php:62
+#: ../tpl/shortcode/render.php:42
+#: ../tpl/widget/render.php:43
 msgid "Server online."
 msgstr "Serveur en ligne."
 
-#: ../tpl/shortcode/render.php:50
-#: ../tpl/widget/render.php:65
+#: ../tpl/shortcode/render.php:45
+#: ../tpl/widget/render.php:46
 msgid "Server down."
 msgstr "Server hors ligne."
 
-#: ../tpl/shortcode/render.php:59
-#: ../tpl/widget/render.php:74
+#: ../tpl/shortcode/render.php:53
+#: ../tpl/widget/render.php:62
 msgid "No server to display."
 msgstr "Aucun serveur à afficher."
+
+#: ../tpl/errors/wpVersion.php:26
+msgid "The WordPress version is too low. You need at least version 2.8"
+msgstr "La version de WordPress est obsolète. Vous devez avoir au moins la version 5.3.2"
+
+#: ../tpl/errors/wpVersion.php:27
+#: ../tpl/errors/phpVersion.php:27
+msgid "Your version:"
+msgstr "Votre version :"
+
+#: ../tpl/errors/wpVersion.php:28
+#: ../tpl/errors/phpVersion.php:28
+msgid "Please upgrade to a newer version and install the plugin again"
+msgstr "Veuillez mettre à jour votre version, et installer le plugin à nouveau"
+
+#: ../tpl/errors/phpVersion.php:26
+msgid "The PHP version of your webspace is too low. You need at least version 5.3.2"
+msgstr "La version de PHP de votre environnement web est obsolète. Vous devez avoir au moins la version 5.3.2"
+
+#: ../tpl/widget/render.php:55
+#, php-format
+msgid "(refresh every %d s)"
+msgstr "(Actualisé toute les %d s)"
+
+#: ../tpl/widget/config.php:26
+msgid "Title :"
+msgstr "Titre :"
+
+#: ../tpl/widget/config.php:32
+msgid "Time between 2 automatic refresh (in second) :"
+msgstr "Temps entre 2 rafraîchissement automatique (en second) :"
+
+#: ../tpl/widget/config.php:36
+msgid "If you left it blank, automatic refresh will be deactivated"
+msgstr "Si vous laissez vide, le rafraîchissement automatique de la liste sera désactivé."
+
+#: ../tpl/admin/config.php:27
+msgid "Server-Up - Edit or add server"
+msgstr "Server-Up - Création ou modification d'un serveur"
+
+#: ../tpl/admin/config.php:31
+msgid "Server successfully added."
+msgstr "Création du serveur réussi"
+
+#: ../tpl/admin/config.php:37
+msgid "Server successfully updated."
+msgstr "Mise à jour du serveur réussie."
+
+#: ../tpl/admin/config.php:43
+msgid "Server'icon successfully updated."
+msgstr "Icon du serveur mis à jour avec succès."
+
+#: ../tpl/admin/config.php:48
+msgid "Settings"
+msgstr "Préférences"
+
+#: ../tpl/admin/config.php:55
+#: ../tpl/admin/listing.php:52
+msgid "Name"
+msgstr "Nom"
+
+#: ../tpl/admin/config.php:59
+msgid "Name of the server."
+msgstr "Nom du serveur."
+
+#: ../tpl/admin/config.php:64
+#: ../tpl/admin/listing.php:53
+msgid "Host"
+msgstr "Host"
+
+#: ../tpl/admin/config.php:68
+msgid "Adress to the server. Can be an url or an ip adress."
+msgstr "Adresse du serveur. Peut être une URL ou un adresse IP."
+
+#: ../tpl/admin/config.php:73
+#: ../tpl/admin/listing.php:54
+msgid "Port"
+msgstr "Port"
+
+#: ../tpl/admin/config.php:77
+msgid "Port of the server"
+msgstr "Port du serveur"
+
+#: ../tpl/admin/config.php:83
+#: ../tpl/admin/listing.php:55
+msgid "Icon"
+msgstr "Icon"
+
+#: ../tpl/admin/config.php:87
+msgid "Icon of the server."
+msgstr "Icon du serveur."
+
+#: ../tpl/admin/config.php:100
+msgid "Save"
+msgstr "Enregistrer"
 
 #: ../tpl/admin/listing.php:27
 msgid "Server-Up - List server"
@@ -65,26 +150,6 @@ msgstr "Supprimer"
 msgid "ID"
 msgstr "Id"
 
-#: ../tpl/admin/listing.php:52
-#: ../tpl/admin/config.php:55
-msgid "Name"
-msgstr "Nom"
-
-#: ../tpl/admin/listing.php:53
-#: ../tpl/admin/config.php:64
-msgid "Host"
-msgstr "Host"
-
-#: ../tpl/admin/listing.php:54
-#: ../tpl/admin/config.php:73
-msgid "Port"
-msgstr "Port"
-
-#: ../tpl/admin/listing.php:55
-#: ../tpl/admin/config.php:83
-msgid "Icon"
-msgstr "Icon"
-
 #: ../tpl/admin/listing.php:66
 msgid "Edit"
 msgstr "Modifier"
@@ -97,74 +162,19 @@ msgstr "Oui"
 msgid "No"
 msgstr "Non"
 
-#: ../tpl/admin/config.php:27
-msgid "Server-Up - Edit or add server"
-msgstr "Server-Up - Création ou modification d'un serveur"
+#: ../lib/ServerUp/Admin.php:47
+#: ../lib/ServerUp/Widget.php:43
+#: ../lib/ServerUp/Widget.php:68
+msgid "Server-Up"
+msgstr "Server-Up"
 
-#: ../tpl/admin/config.php:31
-msgid "Server successfully added."
-msgstr "Création du serveur réussi"
+#: ../lib/ServerUp/Admin.php:48
+msgid "Add server"
+msgstr "Ajouter un serveur"
 
-#: ../tpl/admin/config.php:37
-msgid "Server successfully updated."
-msgstr "Mise à jour du serveur réussie."
-
-#: ../tpl/admin/config.php:43
-msgid "Server'icon successfully updated."
-msgstr "Icon du serveur mis à jour avec succès."
-
-#: ../tpl/admin/config.php:48
-msgid "Settings"
-msgstr "Préférences"
-
-#: ../tpl/admin/config.php:59
-msgid "Name of the server."
-msgstr "Nom du serveur."
-
-#: ../tpl/admin/config.php:68
-msgid "Adress to the server. Can be an url or an ip adress."
-msgstr "Adresse du serveur. Peut être une URL ou un adresse IP."
-
-#: ../tpl/admin/config.php:77
-msgid "Port of the server"
-msgstr "Port du serveur"
-
-#: ../tpl/admin/config.php:87
-msgid "Icon of the server."
-msgstr "Icon du serveur."
-
-#: ../tpl/admin/config.php:100
-msgid "Save"
-msgstr "Enregistrer"
-
-#: ../tpl/widget/render.php:35
-#, php-format
-msgid "(refresh every %d s)"
-msgstr "(Actualisé toute les %d s)"
-
-#: ../tpl/widget/config.php:26
-msgid "Title :"
-msgstr "Titre :"
-
-#: ../tpl/widget/config.php:31
-msgid "Time between 2 automatic refresh (in second) :"
-msgstr "Temps entre 2 rafraîchissement automatique (en second) :"
-
-#: ../tpl/widget/config.php:35
-msgid "If you left it blank, automatic refresh will be deactivated"
-msgstr "Si vous laissez vide, le rafraîchissement automatique de la liste sera désactivé."
-
-#: ../tpl/errors/phpVersion.php:26
-msgid "The PHP-Version of your webspace is too low. You need at least version 5.3.2"
-msgstr "La version de PHP de votre environnement web est obsolète. Vous devez avoir au moins la version 5.3.2"
-
-#: ../tpl/errors/phpVersion.php:27
-msgid "Your version:"
-msgstr "Votre version :"
-
-#: ../tpl/errors/phpVersion.php:28
-msgid "Please upgrade to a newer version and install the plugin again"
-msgstr "Veuillez mettre à jour votre version, et installer le plugin à nouveau"
+#: ../lib/ServerUp/Widget.php:39
+msgid "Display a list of configured servers with name, icon and state (online or not)"
+msgstr "Afficher la liste des serveurs configurés avec le nom, l'icône et l'état (en ligne ou non)"
 
 #~ msgid "Servername"
 #~ msgstr "Nom"
