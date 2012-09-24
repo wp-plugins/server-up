@@ -27,43 +27,36 @@
 	margin: 5px;
 }
 
-#server-list tbody, #server-list tfoot {
-	width: 100% ;
-}
-
-#server-list tbody tr {
+#server-list li {
+	display: block;
 	width: 100%;
-	margin-bottom: 5px;
-}
-
-#server-list tbody td.icon {
-	width: 36px;
-}
-
-#server-list tbody td.status {
-	width: 20px;
-}
-
-#server-list .server-legend {
-	text-align: center;
-	font-size: 8px;
+	clear: both;
+	height: 36px;
 }
 
 #server-list .server-icon {
 	display: block;
+	float: left;
 	width: 36px;
 	height: 36px;
 }
 
 #server-list .server-name {
-	width: 100%;
+	display: block;
+	float: left;
+	margin-left: 5px;
+	margin-top: 13px;
+	padding: O;
+	font-size: 10px;
 }
 
 #server-list .server-status {
 	display: block;
+	float: right;
 	width: 16px;
 	height: 16px;
 	margin-left: 2px;
+	margin-top: 10px;
 }
 
 #server-list .server-online {
@@ -74,3 +67,11 @@
 	background: transparent url(/wp-content/plugins/server-up/img/server_offline.png);
 }
 
+.server-legend {
+	display: block;
+	clear: both;
+	width: 100%;
+	text-align: center;
+	font-size: 7px;
+	font-style: italic;
+}

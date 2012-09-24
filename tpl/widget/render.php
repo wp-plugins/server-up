@@ -25,50 +25,38 @@
 <h3 class="widget-title"><?php echo $title ; ?></h3>
 <?php if (sizeof($list_server) != 0) { ?>
 	
-	<table id="server-list">
+	<ul id="server-list" >
 		
-		<?php if (!empty($uptime)) { ?>
-			
-			<tfoot>
-				<tr>
-					<td class="server-legend" colspan="3">
-						<em><?php echo sprintf(__('(refresh every %d s)', ServerUp::TEXT_DOMAIN), $uptime) ; ?></em>
-						<form>
-							<input type="hidden" id="serverup-refresh-lapstime" name="severup-refresh-lapstime" value="<?php echo $uptime ; ?>" />
-						</form>
-					</td>
-				</tr>
-			</tfoot>
-		<?php } ?>
-		<tbody>
-			
-			<?php foreach ($list_server as $server) { ?>
+		<?php foreach ($list_server as $server) { ?>
+			<li>
 				
-				<tr>
-					<td class="icon" >
-						<?php if ( !empty($server['servericons'])) { ?>
-							<img class="server-icon" src="<?php echo $server['servericons'] ; ?>" alt="default-icons" />
-						<?php } else { ?>
-							<img class="server-icon" src="<?php echo $this->serverup->pluginUrl . 'img/default_icon.png' ; ?>" alt="default-icons" />
-						<?php } ?>
-					</td>
-					<td>
-						<span class="server-name" ><?php echo $server['servername'] ; ?></span>
-					</td>
-					<td class="status" >
-						
-						<?php if ($server['serverstatus'] === true) { ?>
-							
-							<span class="server-status server-online" title="<?php _e('Server online.', ServerUp::TEXT_DOMAIN) ; ?>" >&nbsp;</span>
-						<?php } else { ?>
-							
-							<span class="server-status server-offline" title="<?php _e('Server down.', ServerUp::TEXT_DOMAIN) ; ?>" />&nbsp;</span>
-						<?php } ?>
-					</td>
-				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+				<?php if ( !empty($server['servericons'])) { ?>
+					<img class="server-icon" src="<?php echo $server['servericons'] ; ?>" alt="default-icons" />
+				<?php } else { ?>
+					<img class="server-icon" src="<?php echo $this->serverup->pluginUrl . 'img/default_icon.png' ; ?>" alt="default-icons" />
+				<?php } ?>
+				
+				<span class="server-name" ><?php echo $server['servername'] ; ?></span>
+				
+				<?php if ($server['serverstatus'] === true) { ?>
+					
+					<span class="server-status server-online" title="<?php _e('Server online.', ServerUp::TEXT_DOMAIN) ; ?>" >&nbsp;</span>
+				<?php } else { ?>
+					
+					<span class="server-status server-offline" title="<?php _e('Server down.', ServerUp::TEXT_DOMAIN) ; ?>" >&nbsp;</span>
+				<?php } ?>
+			</li>
+		<?php } ?>
+	</ul>
+	
+	<?php if ( !empty($uptime)) { ?>
+		
+		<p class="server-legend" >
+			<?php echo sprintf(__('(refresh every %d s)', ServerUp::TEXT_DOMAIN), $uptime) ; ?>
+			<input type="hidden" id="serverup-refresh-lapstime" name="severup-refresh-lapstime" value="<?php echo $uptime ; ?>" />
+		</p>
+	<?php } ?>
+	
 <?php } else { ?>
 	
 	<?php _e("No server to display.", ServerUp::TEXT_DOMAIN) ; ?>
