@@ -45,6 +45,11 @@ class ServerUp_Widget extends WP_Widget {
 		$this->init() ;
 	}
 	
+	/**
+	 * Initialization of widget
+	 * @author Arnaud Grousset
+	 * @since 1.1
+	 */
 	public function init() {
 		
 		add_action('wp_print_styles', array($this, 'load_css')) ;
@@ -91,6 +96,11 @@ class ServerUp_Widget extends WP_Widget {
 		
 	}
 	
+	/**
+	 * Display widget' datas
+	 * @author Arnaud Grousset
+	 * @since 1.0
+	 */
 	private function display($title, $uptime) {
 		
 		$list_server = $this->getServers() ;
@@ -103,20 +113,36 @@ class ServerUp_Widget extends WP_Widget {
 		require_once $this->serverup->pluginPath . 'tpl/widget/render.php' ;
 	}
 	
+	/**
+	 * Load Server-Up specific stylesheet
+	 * @author Arnaud Grousset
+	 * @since 1.0
+	 */
 	public function load_css() {
 		
 		wp_enqueue_style('serverup-widget-style', $this->serverup->pluginUrl . 'css/widget.css', array()) ;
 	}
 	
+	/**
+	 * Load Server-Up specific javascript
+	 * @author Arnaud Grousset
+	 * @since 1.0
+	 */
 	public function load_js() {
 		
 		wp_enqueue_script('serverup-widget-script', '/script.js', array( 'jquery' )) ;
 	}
 	
+	/**
+	 * Returns an array containing all available and visible configured server
+	 * @return array All available configured server
+	 * @author Arnaud Grousset
+	 * @since 1.2
+	 */
 	private function getServers() {
 		
-		$sql = "SELECT * FROM " . $this->serverup->tableName ;
-		
+		$sql = "SELECT * FROM {$this->serverup->tableName} where servervisibility = %d ;" ;
+		$sql = $this->serverup->wpdb->prepare($sql, 1) ;
 		return $this->serverup->wpdb->get_results($sql, ARRAY_A) ;
 	}
 }

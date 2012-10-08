@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Server-Up v1.1\n"
+"Project-Id-Version: Server-Up v1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-24 23:47+0100\n"
-"PO-Revision-Date: 2012-09-24 23:49+0100\n"
+"POT-Creation-Date: 2012-10-08 23:52+0100\n"
+"PO-Revision-Date: 2012-10-08 23:55+0100\n"
 "Last-Translator: Arnaud Grousset <grousset.a@gmail.com>\n"
 "Language-Team: Arnaud Grousset <grousset.a@gmail.com>\n"
 "Language: \n"
@@ -87,7 +87,7 @@ msgid "Settings"
 msgstr "Préférences"
 
 #: ../tpl/admin/config.php:55
-#: ../tpl/admin/listing.php:52
+#: ../tpl/admin/listing.php:53
 msgid "Name"
 msgstr "Nom"
 
@@ -96,7 +96,7 @@ msgid "Name of the server."
 msgstr "Nom du serveur."
 
 #: ../tpl/admin/config.php:64
-#: ../tpl/admin/listing.php:53
+#: ../tpl/admin/listing.php:54
 msgid "Host"
 msgstr "Host"
 
@@ -105,7 +105,7 @@ msgid "Adress to the server. Can be an url or an ip adress."
 msgstr "Adresse du serveur. Peut être une URL ou un adresse IP."
 
 #: ../tpl/admin/config.php:73
-#: ../tpl/admin/listing.php:54
+#: ../tpl/admin/listing.php:55
 msgid "Port"
 msgstr "Port"
 
@@ -114,15 +114,24 @@ msgid "Port of the server"
 msgstr "Port du serveur"
 
 #: ../tpl/admin/config.php:83
-#: ../tpl/admin/listing.php:55
+#: ../tpl/admin/listing.php:52
+msgid "Visibility"
+msgstr "Visibilité"
+
+#: ../tpl/admin/config.php:87
+msgid "Visibility of the server in widget and shortcode."
+msgstr "Visibilité du serveur dans les widget et le shortcode."
+
+#: ../tpl/admin/config.php:92
+#: ../tpl/admin/listing.php:56
 msgid "Icon"
 msgstr "Icon"
 
-#: ../tpl/admin/config.php:87
+#: ../tpl/admin/config.php:96
 msgid "Icon of the server."
 msgstr "Icon du serveur."
 
-#: ../tpl/admin/config.php:100
+#: ../tpl/admin/config.php:110
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -151,16 +160,20 @@ msgid "ID"
 msgstr "Id"
 
 #: ../tpl/admin/listing.php:66
-msgid "Edit"
-msgstr "Modifier"
-
-#: ../tpl/admin/listing.php:72
 msgid "Yes"
 msgstr "Oui"
 
-#: ../tpl/admin/listing.php:72
+#: ../tpl/admin/listing.php:66
 msgid "No"
 msgstr "Non"
+
+#: ../tpl/admin/listing.php:68
+msgid "Edit"
+msgstr "Modifier"
+
+#: ../tpl/admin/listing.php:95
+msgid "No icon"
+msgstr "Pas d'icon"
 
 #: ../lib/ServerUp/Admin.php:47
 #: ../lib/ServerUp/Widget.php:43

@@ -25,7 +25,7 @@
 
 class ServerUp {
 	
-	const VERSION = "1.0" ;
+	const VERSION = "1.2" ;
 	const VERSION_OPTION_NAME = "serverup_version" ;
 	const TABLE_NAME = "serverup";
 	const MAIN_MENU_NAME = "serverup-menu";
@@ -46,7 +46,7 @@ class ServerUp {
 	private static $_instance ;
 	
 	/**
-	 * Inserts the database for the TeamSpeak3 Webviewer Data
+	 * Inserts the database for the Server-UP Data
 	 * @since 1.0
 	 * @author Arnaud Grousset
 	 */
@@ -69,7 +69,7 @@ class ServerUp {
 	}
 	
 	/**
-	 * Inserts the database for the TeamSpeak3 Webviewer Data
+	 * Inserts the database for the Server-UP Data
 	 * @since 1.0
 	 * @author Arnaud Grousset
 	 */
@@ -83,6 +83,7 @@ class ServerUp {
 			serveradress VARCHAR(255) NOT NULL,
 			serverport INT(6) NOT NULL,
 			servericons VARCHAR(255) NULL,
+			servervisibility TINYINT(1) NOT NULL DEFAULT 0,
 			PRIMARY KEY  (id)
 		);" ;
 		
@@ -95,8 +96,8 @@ class ServerUp {
 	
 	/**
 	 * Deletes the version option
-	 * @since 1.0
 	 * @author Arnaud Grousset
+	 * @since 1.0
 	 */
 	public function uninstall() {
 		
@@ -119,6 +120,7 @@ class ServerUp {
 				serveradress VARCHAR(255) NOT NULL,
 				serverport INT(6) NOT NULL,
 				servericons VARCHAR(255) NULL,
+				servervisibility TINYINT(1) NOT NULL default 0,
 				PRIMARY KEY  (id)
 			);" ;
 			

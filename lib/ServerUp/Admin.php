@@ -88,6 +88,7 @@ class ServerUp_Admin {
 			"serveradress" => "",
 			"serverport" => "",
 			"servericons" => "",
+			"servervisibility" => 0,
 		) ;
 		
 		$configAdded = false;
@@ -97,24 +98,33 @@ class ServerUp_Admin {
 		if (isset($_POST[ServerUp::FORM_HIDDEN_FIELD_NAME]) && $_POST[ServerUp::FORM_HIDDEN_FIELD_NAME] == "Y") {
 			
 			$servericon = null ;
+			$servervisibility = 0 ;
 			
 			// If a icon should be upload
 			if ( !empty($_FILES['servericons']) && $_FILES['servericons']['error'] == 0) {
 				
 				$file = wp_handle_upload($_FILES['servericons'], array('test_form' => false)) ;
 				$servericon = $file['url'] ;
+			} else if (isset($_POST['servericons']) && $_POST['servericons'] != "") {
+				
+				$servericon = $_POST['servericons'] ;
+			}
+			
+			if (isset($_POST['servervisibility']) && !empty($_POST['servervisibility'])) {
+				
+				$servervisibility = 1 ;
 			}
 			
 			// If a configfile should be updated
 			if (isset($_POST['config-id']) && $_POST['config-id'] != "") {
 				
-				$this->updateServer($_POST['config-id'], $_POST['servername'], $_POST['serveradress'], $_POST['serverport'], $servericon) ;
+				$this->updateServer($_POST['config-id'], $_POST['servername'], $_POST['serveradress'], $_POST['serverport'], $servericon, $servervisibility) ;
 				$configId = $_POST['config-id'] ;
 				$configUpdated = true ;
 			} else {
 				
 				// If a configfile should be added
-				$configId = $this->addServer($_POST['servername'], $_POST['serveradress'], $_POST['serverport'], $servericon) ;
+				$configId = $this->addServer($_POST['servername'], $_POST['serveradress'], $_POST['serverport'], $servericon, $servervisibility) ;
 				$configAdded = true;
 			}
 		}
@@ -176,12 +186,12 @@ class ServerUp_Admin {
 	 * @param string $servericon
 	 * @return int
 	 * @author Arnaud Grousset
-	 * @since 1.0
+	 * @since 1.2
 	 */
-	private function addServer($servername, $serveradress, $serverport, $servericon) {
+	private function addServer($servername, $serveradress, $serverport, $servericon, $servervisibility) {
 		
-		$sql = "INSERT INTO " . $this->serverup->tableName . " (servername, serveradress, serverport, servericons) VALUES (%s, %s, %d, %s) ;" ;
-		$sql = $this->serverup->wpdb->prepare($sql, $servername, $serveradress, $serverport, $servericon) ;
+		$sql = "INSERT INTO " . $this->serverup->tableName . " (servername, serveradress, serverport, servericons, servervisibility) VALUES (%s, %s, %d, %s, %d) ;" ;
+		$sql = $this->serverup->wpdb->prepare($sql, $servername, $serveradress, $serverport, $servericon, $servervisibility) ;
 		
 		$this->serverup->wpdb->query($sql) ;
 		
@@ -196,14 +206,15 @@ class ServerUp_Admin {
 	 * @param string $serveradress
 	 * @param int $serverport
 	 * @param string $servericon
+	 * @param int $servervisibility
 	 * @return int
 	 * @author Arnaud Grousset
-	 * @since 1.0
+	 * @since 1.2
 	 */
-	private function updateServer($id, $servername, $serveradress, $serverport, $servericon) {
+	private function updateServer($id, $servername, $serveradress, $serverport, $servericon, $servervisibility) {
 		
-		$sql = "UPDATE " . $this->serverup->tableName . " SET servername = %s, serveradress = %s, serverport = %d, servericons = %s WHERE id = %d;" ;
-		$sql = $this->serverup->wpdb->prepare($sql, $servername, $serveradress, $serverport, $servericon, $id) ;
+		$sql = "UPDATE " . $this->serverup->tableName . " SET servername = %s, serveradress = %s, serverport = %d, servericons = %s, servervisibility = %d WHERE id = %d;" ;
+		$sql = $this->serverup->wpdb->prepare($sql, $servername, $serveradress, $serverport, $servericon, $servervisibility, $id) ;
 		
 		return $this->serverup->wpdb->query($sql) ;
 	}

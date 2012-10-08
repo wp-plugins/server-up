@@ -3,7 +3,7 @@
 Plugin Name: Server-UP
 Plugin URI: http://eleyone.fr
 Description: Shows if server is online, or not
-Version: 1.1
+Version: 1.2
 Author: Arnaud Grousset
 Author URI: http://eleyone.fr
 */

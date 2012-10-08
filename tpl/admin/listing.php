@@ -48,11 +48,12 @@
 			<thead>
 				<tr>
 					<th class="check-column"><input type="checkbox" /></th>
-					<th scope="col"><?php _e('ID', ServerUp::TEXT_DOMAIN) ?></th>
-					<th scope="col"><?php _e('Name', ServerUp::TEXT_DOMAIN) ?></th>
-					<th scope="col"><?php _e('Host', ServerUp::TEXT_DOMAIN) ?></th>
-					<th scope="col"><?php _e('Port', ServerUp::TEXT_DOMAIN) ?></th>
-					<th scope="col"><?php _e('Icon', ServerUp::TEXT_DOMAIN)?></th>
+					<th scope="col"><?php _e('ID', ServerUp::TEXT_DOMAIN) ; ?></th>
+					<th scope="col"><?php _e('Visibility', ServerUp::TEXT_DOMAIN) ;?>
+					<th scope="col"><?php _e('Name', ServerUp::TEXT_DOMAIN) ; ?></th>
+					<th scope="col"><?php _e('Host', ServerUp::TEXT_DOMAIN) ; ?></th>
+					<th scope="col"><?php _e('Port', ServerUp::TEXT_DOMAIN) ; ?></th>
+					<th scope="col"><?php _e('Icon', ServerUp::TEXT_DOMAIN) ; ?></th>
 				</tr>
 			</thead>
 			<tbody id="the-list">
@@ -62,6 +63,7 @@
 							<input type="checkbox" name="delete[]" value="<?php echo($config['id']) ; ?>" />
 						</th>
 						<td><?php echo $config['id'] ?></td>
+						<td><?php ($config['servervisibility'] ? _e('Yes', ServerUp::TEXT_DOMAIN) : _e('No' , ServerUp::TEXT_DOMAIN)) ; ?></td>
 						<td>
 							<a href="<?php echo ($adminURL . 'admin.php?page=' . $menuName . '&id=' . $config['id']) ?>" title="<?php _e('Edit', ServerUp::TEXT_DOMAIN) ?>">
 								<?php echo $config['servername'] ?>
@@ -69,7 +71,31 @@
 						</td>
 						<td><?php echo $config['serveradress'] ?></td>
 						<td><?php echo $config['serverport'] ?></td>
-						<td><?php ($config['servericon'] ? _e('Yes', ServerUp::TEXT_DOMAIN) : _e('No' , ServerUp::TEXT_DOMAIN)); ?></td>
+						<td class="column-author" >
+							<?php 
+								if ($config['servericons']) {
+									
+									$info = getimagesize($config['servericons']) ;
+									
+									$width = $info[0] ;
+									$height = $info[1] ;
+									
+									if ($width >= $height) {
+										
+										$sizing = 'width="32px"' ;
+									} else {
+										
+										$sizing = 'height="32px"' ;
+									}
+							?>
+								<img src="<?php echo $config['servericons'] ?>" alt="<?php echo $config['servericons'] ?>" title="<?php echo $config['servericons'] ; ?>" <?php echo $sizing ; ?> />
+							<?php 
+								} else {
+									
+									_e('No icon' , ServerUp::TEXT_DOMAIN) ; 
+								}
+							?>
+						</td>
 					</tr>
 				<?php } ?>
 			</tbody>

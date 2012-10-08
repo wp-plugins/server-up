@@ -80,6 +80,15 @@
 				<!-- -->
 				<tr>
 					<th>
+						<label for="servericon" ><?php _e('Visibility', ServerUp::TEXT_DOMAIN) ?></label>
+					</th>
+					<td>
+						<input type="checkbox" name="servervisibility" id="servervisibility" value="1" <?php echo (($config['servervisibility']) ? 'checked="checked"' : '' ) ; ?> />
+						<span class="description"><?php _e('Visibility of the server in widget and shortcode.', ServerUp::TEXT_DOMAIN) ?></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
 						<label for="servericon" ><?php _e('Icon', ServerUp::TEXT_DOMAIN) ?></label>
 					</th>
 					<td>
@@ -92,6 +101,7 @@
 						<th>&nbsp;</th>
 						<td>
 							<img src="<?php echo $config['servericons'] ; ?>" alt="<?php echo $config['servericons'] ; ?>" title="<?php echo $config['servericons'] ; ?>" />
+							<input type="hidden" name="servericons" id="servericons" value="<?php echo $config['servericons'] ; ?>" />
 						</td>
 					</tr>
 				<?php } ?>

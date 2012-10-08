@@ -77,14 +77,15 @@ class ServerUp_Shortcode {
 	}
 	
 	/**
-	 * Returns an array containing all available configured server
+	 * Returns an array containing all available and visible configured server
 	 * @return array All available configured server
-	 * @since 1.0
 	 * @author Arnaud Grousset
+	 * @since 1.2
 	 */
 	private function getServers() {
 		
-		$sql = "SELECT * FROM " . $this->serverup->tableName ;
+		$sql = "SELECT * FROM {$this->serverup->tableName} where servervisibility = %d ;" ;
+		$sql = $this->serverup->wpdb->prepare($sql, 1) ;
 		return $this->serverup->wpdb->get_results($sql, ARRAY_A) ;
 	}
 	
